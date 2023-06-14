@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Web開発基礎 課題1</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>Web開発基礎 課題1</h1>
+    <h3>
+        テーブル(HTML)を出すプログラムを作ってみる
+    </h3>
+    <h4>要件</h4>
+    <p>国語、英語、数学、歴史、生物の点数をテーブル形式で表示するる。</p>
+    <p>元データは↓のように、配列で与えられる。</p>
+    <pre>
+        $result = array(
+            "Japanese" => 60,
+            "English" => 70,
+            "Mathematics" => 50,
+            "History" => 60,
+            "Biology" => 45
+        );
+    </pre>
+    <p>出力は↓のようになる</p>
+    <table class="table table-bordered">
+        <tr>
+            <td>Japanese</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td><span class="text-danger fw-bold">50</span></td>
+        </tr>
+        <tr>
+            <td>History</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Biology</td>
+            <td><span class="text-danger fw-bold">45</span></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>285</th>
+        </tr>
+    </table>
+    <ul>
+        <li>合計点を表示する。</li>
+        <li>60点未満の場合は、赤字にする。(他と別の表示にする)</li>
+    </ul>
+    <p>できたら提出してください。</p>
+</div>
+</body>
+</html>

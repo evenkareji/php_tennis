@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>教科書 11章データベース</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Web開発基礎 教科書 11章データベース</h1>
+    <p>データベースに入力するコード。(サンプルコードフォルダ内には無い)</p>
+
+    <div class="card">
+        <div class="card-header">
+            p224
+        </div>
+        <div class="card-body">
+                <pre>
+CREATE DATABASE tennis;
+                </pre>
+                <pre>
+CREATE TABLE bbs(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+title VARCHAR(255),
+body TEXT NOT NULL,
+date DATETIME NOT NULL,
+pass VARCHAR(4) NOT NULL
+) DEFAULT CHARACTER set=utf8;
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header">
+            p228
+        </div>
+        <div class="card-body">
+                <pre>
+GRANT ALL ON tennis.* TO 'tennisuser'@'localhost' IDENTIFIED BY 'password';
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header">
+            p229
+        </div>
+        <div class="card-body">
+                <pre>
+FLUSH PRIVILEGES;
+                </pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p255
+        </div>
+        <div class="card-body">
+                <pre>
+CREATE DATABASE addressbook;
+                </pre>
+                <pre>
+CREATE TABLE addressbook(
+id INT PRIMARY KEY NOT NULL,
+name VARCHAR(30) NOT NULL,
+zipcode CHAR(7),
+address VARCHAR(255)
+) DEFAULT CHARACTER set=utf8;
+                </pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p269
+        </div>
+        <div class="card-body">
+                <pre>
+CREATE TABLE users(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL
+) DEFAULT CHARACTER set=utf8;
+                </pre>
+            <pre>
+INSERT INTO users (name, password) VALUES
+('yamada', SHA2('yamadapass', 256)),
+('tanaka', SHA2('tanakapass', 256)),
+('kikuchi', SHA2('kikuchipass', 256));
+                </pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p309
+        </div>
+        <div class="card-body">
+                <pre>
+CREATE TABLE profiles(
+id INT PRIMARY KEY NOT NULL,
+name VARCHAR(50) NOT NULL,
+body TEXT,
+mail VARCHAR(255)
+);
+                </pre>
+            <pre>
+INSERT INTO profiles VALUES
+(1, '山田太郎', null, null),
+(2, '田中二郎', null, null),
+(3, '菊池三郎', null, null);
+                </pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p310
+        </div>
+        <div class="card-body">
+                <pre>
+                        SELECT users.id, users.name AS login_name, profiles.name AS profilename FROM users, profiles WHERE users.id=profiles.id;
+                </pre>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>教科書</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Web開発基礎 教科書</h1>
+    <p>教科書の補足事項を紹介します。</p>
+    <div class="card">
+        <div class="card-header">
+            サンプルファイル
+        </div>
+        <div class="card-body">
+            <p>
+                sample_surasuraPHP2nd_2.zip
+            </p>
+        </div>
+    </div>
+
+    <h3>3章</h3>
+    <div class="card">
+        <div class="card-header">
+            P46:公開フォルダ
+        </div>
+        <div class="card-body">
+            <p>
+                MAMP の場合は、アプリケーション→MAMP→htdocs
+                <br>
+                フォルダの場所を変更したい場合は<a href="https://qiita.com/ndj/items/d837a9f20709bb5ec3d8">https://qiita.com/ndj/items/d837a9f20709bb5ec3d8</a>
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P47: 記号
+        </div>
+        <div class="card-body">
+            <p>
+                &lt;?php などの記号は半角で書く。全角だと期待通りに動かない。<br>
+                特に全角空白は分かりにくいので注意する。<br>
+                全角空白を強調表示する拡張機能 zenkaku(by mosapride)→<a
+                    href="https://marketplace.visualstudio.com/items?itemName=mosapride.zenkaku">https://marketplace.visualstudio.com/items?itemName=mosapride.zenkaku</a>
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P50-52: エラー
+        </div>
+        <div class="card-body">
+            <p>
+                プログラムの学習にエラーはつきもの。<br>
+                エラーが出たら直せば良い。
+            </p>
+        </div>
+    </div>
+
+    <h3>4章</h3>
+    <div class="card">
+        <div class="card-header">
+            P65: 結合演算子
+        </div>
+        <div class="card-body">
+            <pre>
+            $name = $name . "花子"; // ←のように書いてもOK
+            </pre>
+            <p>=の右側の処理『$name と"花子"を繋げる』を実行して、その結果を$nameに入れる<br>
+                通常は左から処理していくが、=が出てきたら注意する</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P68: 四則演算と()
+        </div>
+        <div class="card-body">
+            <p>かけ算／わり算は、たし算／ひき算より先に計算される<br>
+                ()で括ると、()の中を先に計算する</p>
+        </div>
+    </div>
+
+    <h3>5章</h3>
+    <div class="card">
+        <div class="card-header">
+            P78: リスト5-1
+        </div>
+        <div class="card-body">
+            <p>
+                日付を変えないと何も表示されない。
+                mktime(...)のところを今日の日付にする。<br>
+                日本では、2023年4月20日、のように年月日の順が普通だが、英語圏だと、April 20th, 2023のように、月日年の順。<br>
+                1分=60秒。1時間=3,600秒。1日=86,400秒。
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P79: 比較演算子
+        </div>
+        <div class="card-body">
+            <p>
+                == と === で異なる例<br>
+                型を厳密に比較する場合は === とイコール3つ
+            </p>
+            <pre>
+                    if ("1" === 1) {
+                        ...
+                    }
+                </pre>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P91: while
+        </div>
+        <div class="card-body">
+            <p>
+                while は無限ループになりやすいので注意する。(ループを終了する条件を書き洩らす)
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P95-99 : その他の構文
+        </div>
+        <div class="card-body">
+            <p>
+                授業では後回しにしたいと思います。
+            </p>
+        </div>
+    </div>
+
+    <h3>6章</h3>
+    <div class="card">
+        <div class="card-header">
+            P105: 配列
+        </div>
+        <div class="card-body">
+            <p>
+                配列の表示は、$xxx のようになる。変数と見た目上は同じなので注意する。
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P120: 制御構文の書き方
+        </div>
+        <div class="card-body">
+                <pre>
+                    //if endif
+                    &lt;?php if (...) : ?&gt;
+                        ...
+                    &lt;?php endif; ?&gt;
+                    //foreach endforeach
+                    &lt;?php foreach ($... as $...) : ?&gt;
+                        ...
+                    &lt;?php endforeach; ?&gt;
+                    //while endwhile
+                    &lt;?php while (...) : ?&gt;
+                        ...
+                    &lt;?php endwhile; ?&gt;
+                </pre>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            P337: チェックテスト
+        </div>
+        <div class="card-body">
+            <p class="alert alert-warning">誤植</p>
+                <pre>
+foreach ($foods as $food_type => $food){
+  echo $food_type .':';
+  foreach ($food as $key => $value){
+    echo $key .':'. $value .'&lt;br>';
+  }
+}
+                </pre>
+        </div>
+    </div>
+
+    <h3>7章</h3>
+    <div class="card">
+        <div class="card-header">
+            P129: return
+        </div>
+        <div class="card-body">
+            <p>
+                return を実行したら、その関数の処理は終了。return の後に書いたコードは実行されない
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            P129: round関数
+        </div>
+        <div class="card-body">
+            <p>
+                端数を四捨五入 : round<br>
+                端数を切り捨てる : floor<br>
+                端数を切り上げる : ceil
+            </p>
+        </div>
+    </div>
+
+    <h3>8章</h3>
+    <div class="card">
+        <div class="card-header">
+            p146: Bootstrap
+        </div>
+        <div class="card-body">
+            <p>
+                サンプルコードの Bootstrap のバージョンは古い(4.5)。現在は5系が使われる。
+            </p>
+        </div>
+    </div>
+
+    <h3>9章</h3>
+    <div class="card">
+        <div class="card-header">
+            p163: ファイル書き込み
+        </div>
+        <div class="card-body">
+            <p>
+                サーバーでのファイルの権限(パーミッション)も確認しておく。 &rarr; p175 column
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            p177: 改行コード
+        </div>
+        <div class="card-body">
+            <p>
+                PHP_EOL という定数が用意されている。こちらを使うと楽。
+            </p>
+        </div>
+    </div>
+
+
+    <h3>10章</h3>
+    <div class="card">
+        <div class="card-header">
+            p188: input(ラジオボタン)
+        </div>
+        <div class="card-body">
+                <pre>
+                    &lt;input type="radio" value="man" name="gender">男性
+                    &lt;input type="radio" value="woman" name="gender">女性
+                </pre>
+            <p>画面上では、『男性』『女性』と表示するが、プログラム内部での処理はvalueで指定した値(manとwoman)</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p201: 画像のフォルダ
+        </div>
+        <div class="card-body">
+            <p>あらかじめ album フォルダを作っておく(サーバーの設定によっては不要)</p>
+        </div>
+    </div>
+
+    <h3>11章</h3>
+    <div class="card">
+        <div class="card-header">
+            p223: データベース
+        </div>
+        <div class="card-body">
+            <p>教科書ではコマンドラインから実行しているが、PhpMyAdminを使うと、GUIで操作できる<br>
+            教科書の<a href="db.html">データベースを扱うコード</a>。</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            教科書に追加
+        </div>
+        <div class="card-body">
+            <p>データベース側で、現在日時をデフォルト値にできる。</p>
+            <img src="../images/db_time.png" alt="データベース、デフォルトを現在日時にする">
+            <p>p235 で now() を指定しているが、その手間が省ける</p>
+        </div>
+    </div>
+    <h3>12章</h3>
+    <div class="card">
+        <div class="card-header">
+            p267: ログイン機能
+        </div>
+        <div class="card-body">
+            <p>実際の案件でログイン機能を実装することはあまり無い(フレームワーク等を使うことが多い)<br>
+                ⇒授業では練習としてやってみる</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            p277: ログイン
+        </div>
+        <div class="card-body">
+            <p class="alert alert-warning">サンプルファイルのフォルダ修正が必要</p>
+            <p>
+                includes-login.phpを、includes/ フォルダに入れて login.php という名前にする。
+            </p>
+        </div>
+    </div>
+
+    <h3>13章</h3>
+    <div class="card">
+        <div class="card-header">
+            p288: クロスサイトスクリプティング
+        </div>
+        <div class="card-body">
+            <p>ブラウザ側で対策(怪しいコードを実行しない)してくれることもある。※アプリケーション側で対処しておく必要はある。</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            p290: htmlspecialchars関数
+        </div>
+        <div class="card-body">
+            <p>名前が長いので、hという名前にすることもある</p>
+            <pre>
+                    function h( $str ) {
+                        return htmlspecialchars( $str, ENT_QUOTES, 'UTF-8' );
+                    }
+                </pre>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
