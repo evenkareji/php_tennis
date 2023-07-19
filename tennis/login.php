@@ -4,30 +4,36 @@ if (isset($_SESSION['id'])) {
     header('Location: index.php');
 } else if (isset($_POST['name']) && isset($_POST['password'])) {
     $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8';
-$user = 'tennisuser'; // ユーザー作らなかった人は root
-$password = 'password'; // ユーザー作らなかった人は root
+$user = 'root'; // ユーザー作らなかった人は root
+$password = '1234'; // ユーザー作らなかった人は root
 try {
-    // [何らかの処理]を実行する
-    // データベースへアクセスして、bbsに記事を登録する
+
     $db = new PDO($dsn, $user, $password);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
    // ↑2行は、データベースへアクセスするときに書く
-   
+
    // データベースから読み込み
-   $stmt = $db->prepare("
-       SELECT * FROM users WHERE name=:name AND password=:pass");
+  $stmt = $db->prepare("
+   SELECT * FROM users WHERE name=:name AND password=:password");
+
+if ($stmt === false) {
+    var_dump($db->errorInfo());
+    die();
+}
 
        $stmt->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
-       $stmt->bindParam(':pass', hash("sha256", $_POST['password']), PDO::PARAM_STR);
+       $stmt->bindParam(':password', hash("sha256", $_POST['password']), PDO::PARAM_STR);
        $stmt->execute();
 
        if ($row = $stmt->fetch()) { // ユーザー・パスワードが一致するものがあるか？
         session_regenerate_id(true);
-        $_SESSION['id'] = $row['id']; 
+        $_SESSION['id'] = $row['id'];
         header('Location: index.php');
         exit();
        } else {
-        header('Location: login.php');
+      echo "kkk";
+        // header('Location: login.php');
+
         exit();
        }
 
@@ -76,7 +82,7 @@ try {
         <input type="submit" class="btn btn-primary btn-block" value="ログイン">
 
         </form>
-        
+
         <!-- 本文ここまで -->
       </div>
     </main>
